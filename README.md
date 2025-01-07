@@ -24,23 +24,37 @@ def delete_todo(index):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-# Use an official Python runtime as a parent image
+
 FROM python:3.9-slim
 
-# Set the working directory in the container
+
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
+
 RUN pip install flask
 
-# Make port 5000 available to the world outside this container
 EXPOSE 5000
 
-# Define environment variable
-ENV NAME ToDoApp
+# Clone the repository
+git clone https://github.com/your-username/your-repository-name.git
 
-# Run app.py when the container launches
+# Navigate to the repository folder
+cd your-repository-name
+
+# Modify the README.md file (or any file)
+# Open it in a text editor and make your changes
+
+# Stage the modified file
+git add README.md
+
+# Commit the changes
+git commit -m "Updated README"
+
+# Push the changes to GitHub
+git push origin main
+
+ENV NAME ToDoApp
 CMD ["python", "app.py"]
